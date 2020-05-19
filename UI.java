@@ -12,9 +12,10 @@ public class UI {
     JButton jButton[][];
 
     public void init(Map m){
-        frame.setSize(400, 400);
+        frame.setSize(800, 800);
         frame.setLocationRelativeTo(null);
-        // frame.setLayout(new GridLayout());
+        frame.setResizable(true);
+        frame.setLayout(new GridLayout());
         GridLayout gridLayout = new GridLayout(m.getLen(),m.getLen());
         jButton = new JButton[m.getLen()][m.getLen()];
 
@@ -23,7 +24,6 @@ public class UI {
         for (int i = 0; i < m.getLen(); i++) {
             for (int j = 0; j < m.getLen(); j++) {
                 jButton[i][j] = new JButton();
-                jButton[i][j].setSize(20,20);
                 jButton[i][j].setVisible(true);
             }
         }
@@ -31,18 +31,20 @@ public class UI {
         for (int i = 0; i < m.getLen(); i++) {
             for (int j = 0; j < m.getLen(); j++) {
                 panel.add(jButton[i][j]);
-                jButton[i][j].show();
+                jButton[i][j].setVisible(true);
             }
         }
 
         frame.setResizable(false);
         frame.setTitle(title);
-        panel.show();
-        frame.show();
+        panel.setVisible(true);;
+        frame.setVisible(true);;
     }
 
     public void show(Map m) throws InterruptedException {
         map=m;
+        panel.setVisible(false);;
+
         for (int i = 0; i < m.getLen(); i++) {
             for (int j = 0; j < m.getLen(); j++) {
                 if(map.get(i, j)==0){
@@ -52,28 +54,8 @@ public class UI {
                 }
             }
         }
+        panel.setVisible(true);;
         Thread.sleep(500);
-
-        // map=m;
-        // clear();
-        // int len = map.getLen();
-        // for (int i = 0; i < len + 4; i++) {
-        // System.out.print("-");
-        // }
-        // System.out.println();
-
-        // for (int i = 0; i < len; i++) {
-        // System.out.print("||");
-        // for (int j = 0; j < len; j++) {
-        // System.out.print(map.get(i, j));
-        // }
-        // System.out.println("||");
-        // }
-        // for (int i = 0; i < len + 4; i++) {
-        // System.out.print("-");
-        // }
-        // System.out.println();
-        // Thread.sleep(500);
     }
 
     private void clear() {

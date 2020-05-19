@@ -1,8 +1,13 @@
 public class TimeCtrl {
     UI ui = new UI();
-    Map map = new Map();
+    Map map;
     Logic logic = new Logic();
-
+    TimeCtrl(){
+        map = new Map(0.5);
+    }
+    TimeCtrl(double probability){
+        map = new Map(probability);
+    }
     public void run() {
         ui.init(map);
         try {
