@@ -11,11 +11,11 @@ public class UI {
     JPanel panel = new JPanel();
     JButton jButton[][];
 
-    public void show(Map m) throws InterruptedException {
+    public void init(Map m){
         frame.setSize(400, 400);
         frame.setLocationRelativeTo(null);
         // frame.setLayout(new GridLayout());
-        GridLayout gridLayout = new GridLayout();
+        GridLayout gridLayout = new GridLayout(m.getLen(),m.getLen());
         jButton = new JButton[m.getLen()][m.getLen()];
 
         panel.setLayout(gridLayout);
@@ -24,6 +24,7 @@ public class UI {
             for (int j = 0; j < m.getLen(); j++) {
                 jButton[i][j] = new JButton();
                 jButton[i][j].setSize(20,20);
+                jButton[i][j].setVisible(true);
             }
         }
 
@@ -38,6 +39,20 @@ public class UI {
         frame.setTitle(title);
         panel.show();
         frame.show();
+    }
+
+    public void show(Map m) throws InterruptedException {
+        map=m;
+        for (int i = 0; i < m.getLen(); i++) {
+            for (int j = 0; j < m.getLen(); j++) {
+                if(map.get(i, j)==0){
+                    jButton[i][j].setBackground(Color.white);
+                }else{
+                    jButton[i][j].setBackground(Color.black);
+                }
+            }
+        }
+        Thread.sleep(500);
 
         // map=m;
         // clear();

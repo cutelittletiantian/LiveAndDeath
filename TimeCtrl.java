@@ -4,6 +4,7 @@ public class TimeCtrl {
     Logic logic = new Logic();
 
     public void run() {
+        ui.init(map);
         try {
             while(true){
                 ui.show(map);
