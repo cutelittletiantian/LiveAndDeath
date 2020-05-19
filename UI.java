@@ -25,7 +25,8 @@ public class UI {
     }
 
     private void clear() {
-        for (int i = 0; i < 50; i++) {
+        Map map = new Map();
+        for (int i = 0; i <map.getLen() ; i++) {
             System.out.println();
         }
     }

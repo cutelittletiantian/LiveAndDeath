@@ -10,6 +10,7 @@ public class TimeCtrl {
                 logic.update(map);
             }
         } catch (Exception e) {
+            System.out.println(e);
             System.out.println("运行结束");
         }
     }
